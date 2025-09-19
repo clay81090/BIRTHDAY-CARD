@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños - Querido Suegro</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Playfair+Display:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 600px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            animation: cardAppear 1s ease-out;
+        }
+        
+        @keyframes cardAppear {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, #ff6b6b, #ffa726);
+            padding: 30px 30px 20px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .photo-container {
+            margin: 20px auto;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .couple-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .couple-photo:hover {
+            transform: scale(1.05);
+        }
+        
+        .card-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="90" r="2.5" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translateX(-50px) translateY(-50px); }
+            100% { transform: translateX(50px) translateY(50px); }
+        }
+        
+        .birthday-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .card-content {
+            padding: 40px 30px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #333;
+        }
+        
+        .greeting {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .message {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        .signature {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #f0f0f0;
+        }
+        
+        .signature-name {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: #667eea;
+            font-weight: 600;
+        }
+        
+        .signature-date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+        
+        .hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .heart {
+            position: absolute;
+            color: #ff6b6b;
+            font-size: 20px;
+            animation: heartFloat 6s infinite ease-in-out;
+            opacity: 0.7;
+        }
+        
+        .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .heart:nth-child(2) { left: 20%; animation-delay: 1s; }
+        .heart:nth-child(3) { left: 30%; animation-delay: 2s; }
+        .heart:nth-child(4) { left: 40%; animation-delay: 3s; }
+        .heart:nth-child(5) { left: 50%; animation-delay: 4s; }
+        .heart:nth-child(6) { left: 60%; animation-delay: 5s; }
+        .heart:nth-child(7) { left: 70%; animation-delay: 0.5s; }
+        .heart:nth-child(8) { left: 80%; animation-delay: 1.5s; }
+        .heart:nth-child(9) { left: 90%; animation-delay: 2.5s; }
+        
+        @keyframes heartFloat {
+            0%, 100% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .decorative-border {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 3px solid transparent;
+            border-radius: 20px;
+            background: linear-gradient(45deg, #ff6b6b, #ffa726, #667eea, #764ba2) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: exclude;
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+        }
+        
+        @media (max-width: 768px) {
+            .card {
+                margin: 10px;
+                border-radius: 15px;
+            }
+            
+            .birthday-title {
+                font-size: 2.5rem;
+            }
+            
+            .card-content {
+                padding: 30px 20px;
+                font-size: 1rem;
+            }
+            
+            .greeting {
+                font-size: 1.5rem;
+            }
+            
+            .photo-container {
+                width: 150px;
+                height: 150px;
+                margin: 15px auto;
+            }
+            
+            .card-header {
+                padding: 25px 20px 15px 20px;
+            }
+        }
+        
+        /* Text message optimization */
+        .text-ready {
+            max-width: 100%;
+            margin: 0;
+            border-radius: 0;
+            box-shadow: none;
+            min-height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="decorative-border"></div>
+        <div class="hearts">
+            <div class="heart">💖</div>
+            <div class="heart">💕</div>
+            <div class="heart">💗</div>
+            <div class="heart">💝</div>
+            <div class="heart">💖</div>
+            <div class="heart">💕</div>
+            <div class="heart">💗</div>
+            <div class="heart">💝</div>
+            <div class="heart">💖</div>
+        </div>
+        
+        <div class="card-header">
+            <h1 class="birthday-title">¡Feliz Cumpleaños!</h1>
+            <p class="subtitle">Un día especial para celebrar a alguien muy especial</p>
+            
+            <div class="photo-container">
+                <img src="0A697849-194B-4BF7-87FD-72035BF8E91C_4_5005_c.jpeg" alt="Meli y yo" class="couple-photo">
+            </div>
+        </div>
+        
+        <div class="card-content">
+            <div class="greeting">Querido Suegro,</div>
+            
+            <div class="message">
+                En este día tan especial quiero celebrarlo, no solo por ser un padre y un hombre de familia tan maravilloso, sino también por haberme dado el regalo más grande que jamás podría recibir: <span class="highlight">su hija, Meli</span>. Ella es la luz de mi vida, y sé que es gracias al amor, los valores y la fortaleza que usted sembró en ella.
+            </div>
+            
+            <div class="message">
+                Aunque aún no nos hemos conocido en persona, siento una <span class="highlight">profunda gratitud</span> hacia usted. Estoy muy emocionado de poder conocerlo finalmente en un par de meses, de ver su hermoso país y su hogar, y de poder agradecerle en persona. Sé cuánto ha anhelado Meli regresar a casa y estar con su familia otra vez. Es algo por lo que he orado, porque solo puedo imaginar lo difícil que ha sido para ella estar lejos de ustedes.
+            </div>
+            
+            <div class="message">
+                Su amor, su ejemplo y su guía han formado una <span class="highlight">familia increíble</span>. Me siento bendecido de ser parte de esta hermosa familia y de tener la oportunidad de aprender de usted.
+            </div>
+            
+            <div class="message">
+                Como puede ver en esta foto, Meli y yo somos muy felices juntos. Su amor y sabiduría se reflejan en la mujer maravillosa que ella es hoy. Estamos emocionados de poder compartir muchos más momentos especiales con usted y toda la familia.
+            </div>
+            
+            <div class="message">
+                Que este nuevo año de vida esté lleno de <span class="highlight">salud, felicidad y bendiciones</span>. ¡Feliz cumpleaños, querido suegro!
+            </div>
+            
+            <div class="signature">
+                <div class="signature-name">Con todo mi amor y respeto</div>
+                <div class="signature-date">Love, CJ</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
